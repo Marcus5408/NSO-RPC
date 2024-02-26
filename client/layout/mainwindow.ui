@@ -23,7 +23,7 @@
     </rect>
    </property>
    <widget class="QWidget" name="link">
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="label_linkInstructions">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -42,7 +42,7 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QGroupBox" name="groupBox">
+    <widget class="QGroupBox" name="groupBox_pasteURL">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -54,7 +54,7 @@
      <property name="title">
       <string/>
      </property>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="pushButton_login">
       <property name="geometry">
        <rect>
         <x>170</x>
@@ -67,7 +67,7 @@
        <string>Log In</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit">
+     <widget class="QLineEdit" name="lineEdit_pasteURL">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -80,7 +80,7 @@
        <string>Paste the URL here!</string>
       </property>
      </widget>
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="comboBox_langSelect">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -91,7 +91,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="label_linkAccountTitle">
      <property name="geometry">
       <rect>
        <x>100</x>
@@ -112,7 +112,7 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_18">
+    <widget class="QLabel" name="label_linkAccountNotice">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -131,7 +131,7 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_22">
+    <widget class="QLabel" name="label_manualBrowserOpen">
      <property name="geometry">
       <rect>
        <x>170</x>
@@ -155,7 +155,7 @@
     </widget>
    </widget>
    <widget class="QWidget" name="home">
-    <widget class="QGroupBox" name="groupBox_6">
+    <widget class="QGroupBox" name="groupBox_sidebar">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -167,7 +167,7 @@
      <property name="title">
       <string/>
      </property>
-     <widget class="QGroupBox" name="groupBox_2">
+     <widget class="QGroupBox" name="groupBox_appStatus">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -179,7 +179,7 @@
       <property name="title">
        <string/>
       </property>
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="label_currentPFP">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -192,7 +192,7 @@
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="label_currentProfileName">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -205,7 +205,7 @@
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="label_5">
+      <widget class="QLabel" name="label_NSORPCinfo">
        <property name="geometry">
         <rect>
          <x>130</x>
@@ -221,7 +221,7 @@
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
        </property>
       </widget>
-      <widget class="QLabel" name="label_6">
+      <widget class="QLabel" name="label_discord">
        <property name="geometry">
         <rect>
          <x>100</x>
@@ -235,7 +235,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QGroupBox" name="groupBox_3">
+     <widget class="QGroupBox" name="groupBox_me">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -247,7 +247,7 @@
       <property name="title">
        <string/>
       </property>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="pushButton_me">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -261,7 +261,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QGroupBox" name="groupBox_5">
+     <widget class="QGroupBox" name="groupBox_friends">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -273,7 +273,7 @@
       <property name="title">
        <string/>
       </property>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="pushButton_friends">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -287,7 +287,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QGroupBox" name="groupBox_4">
+     <widget class="QGroupBox" name="groupBox_exit">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -299,7 +299,7 @@
       <property name="title">
        <string/>
       </property>
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="pushButton_exit">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -313,7 +313,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QGroupBox" name="groupBox_8">
+     <widget class="QGroupBox" name="groupBox_settings">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -325,7 +325,7 @@
       <property name="title">
        <string/>
       </property>
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="pushButton_settings">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -340,7 +340,7 @@
       </widget>
      </widget>
     </widget>
-    <widget class="QStackedWidget" name="stackedWidget_2">
+    <widget class="QStackedWidget" name="stackedWidget_Content">
      <property name="geometry">
       <rect>
        <x>210</x>
@@ -350,7 +350,7 @@
       </rect>
      </property>
      <widget class="QWidget" name="page">
-      <widget class="QGroupBox" name="groupBox_7">
+      <widget class="QGroupBox" name="groupBox_NSOstatus">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -362,7 +362,7 @@
        <property name="title">
         <string/>
        </property>
-       <widget class="QLabel" name="label_7">
+       <widget class="QLabel" name="label_statusName">
         <property name="geometry">
          <rect>
           <x>120</x>
@@ -381,7 +381,7 @@
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QLabel" name="label_8">
+       <widget class="QLabel" name="label_statusImage">
         <property name="geometry">
          <rect>
           <x>15</x>
@@ -394,7 +394,7 @@
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="label_10">
+       <widget class="QLabel" name="label_statusState">
         <property name="geometry">
          <rect>
           <x>120</x>
@@ -411,7 +411,7 @@
         </property>
        </widget>
       </widget>
-      <widget class="QLabel" name="label_9">
+      <widget class="QLabel" name="label_currentlyPlayingText">
        <property name="geometry">
         <rect>
          <x>110</x>
@@ -427,7 +427,7 @@
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QLabel" name="label_11">
+      <widget class="QLabel" name="label_profilePFP">
        <property name="geometry">
         <rect>
          <x>35</x>
@@ -440,7 +440,7 @@
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="label_13">
+      <widget class="QLabel" name="label_profileName">
        <property name="geometry">
         <rect>
          <x>140</x>
@@ -456,7 +456,7 @@
         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
        </property>
       </widget>
-      <widget class="QLabel" name="label_14">
+      <widget class="QLabel" name="label_profileDetails">
        <property name="geometry">
         <rect>
          <x>140</x>
@@ -469,7 +469,7 @@
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_7">
+      <widget class="QPushButton" name="pushButton_selectProfile">
        <property name="geometry">
         <rect>
          <x>78</x>
@@ -495,7 +495,7 @@
         <string>Revert</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_20">
+      <widget class="QLabel" name="label_accountNotice">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -518,7 +518,7 @@ Please note that NSO-RPC requires two different Nintendo accounts.</string>
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QLabel" name="label_21">
+      <widget class="QLabel" name="label_quickstartLink">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -544,7 +544,7 @@ Please note that NSO-RPC requires two different Nintendo accounts.</string>
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="page_2">
+     <widget class="QWidget" name="page_friends">
       <widget class="QScrollArea" name="scrollArea">
        <property name="geometry">
         <rect>
@@ -575,8 +575,8 @@ Please note that NSO-RPC requires two different Nintendo accounts.</string>
        </widget>
       </widget>
      </widget>
-     <widget class="QWidget" name="page_3">
-      <widget class="QLabel" name="label_12">
+     <widget class="QWidget" name="page_settings">
+      <widget class="QLabel" name="label_toggleRPC">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -589,7 +589,7 @@ Please note that NSO-RPC requires two different Nintendo accounts.</string>
         <string>Discord:</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_6">
+      <widget class="QPushButton" name="pushButton_logout">
        <property name="geometry">
         <rect>
          <x>140</x>
@@ -602,7 +602,7 @@ Please note that NSO-RPC requires two different Nintendo accounts.</string>
         <string>Logout</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_15">
+      <widget class="QLabel" name="label_toggleRPCUpdate">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -615,7 +615,7 @@ Please note that NSO-RPC requires two different Nintendo accounts.</string>
         <string>Update Status:</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_16">
+      <widget class="QLabel" name="label_toggleDarkMode">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -628,7 +628,7 @@ Please note that NSO-RPC requires two different Nintendo accounts.</string>
         <string>Dark Mode:</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_17">
+      <widget class="QLabel" name="label_startMinimized">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -641,7 +641,7 @@ Please note that NSO-RPC requires two different Nintendo accounts.</string>
         <string>Start Minimized:</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_19">
+      <widget class="QLabel" name="label_startAtLaunch">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -654,7 +654,7 @@ Please note that NSO-RPC requires two different Nintendo accounts.</string>
         <string>Start on Launch:</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_23">
+      <widget class="QLabel" name="label_showNSOPFP">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -686,7 +686,7 @@ Please note that NSO-RPC requires two different Nintendo accounts.</string>
         <string>Set friend code</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_24">
+      <widget class="QLabel" name="label_showeShop">
        <property name="geometry">
         <rect>
          <x>10</x>

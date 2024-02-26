@@ -361,102 +361,98 @@ class GUI(Ui_MainWindow):
             self.changeState()
 
     def assignVariables(self):
-        self.button = self.groupBox.findChild(QPushButton, 'pushButton')
+        self.button = self.groupBox_pasteURL.findChild(QPushButton, 'pushButton_login')
         self.button.clicked.connect(self.changeState)
 
-        self.lineEdit = self.groupBox.findChild(QLineEdit, 'lineEdit')
+        self.lineEdit_pasteURL = self.groupBox_pasteURL.findChild(QLineEdit, 'lineEdit_pasteURL')
 
-        self.comboBox = self.groupBox.findChild(QComboBox, 'comboBox')
-        self.comboBox.clear()
-        self.comboBox.addItems(languages)
+        self.comboBox_langSelect = self.groupBox_pasteURL.findChild(QComboBox, 'comboBox_langSelect')
+        self.comboBox_langSelect.clear()
+        self.comboBox_langSelect.addItems(languages)
 
         # Home
-        self.selfImage = self.stackedWidget.findChild(QLabel, 'label_3')
+        self.selfImage = self.stackedWidget.findChild(QLabel, 'label_currentPFP')
         self.selfImage.setScaledContents(True)
         self.selfImage.setCursor(QCursor(Qt.PointingHandCursor))
         self.selfImage.mousePressEvent = self.openPfp
 
-        self.pushButton_7.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_selectProfile.setCursor(QCursor(Qt.PointingHandCursor))
         self.pushButton_8.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton_7.clicked.connect(lambda *args: self.updateProfile(True))
+        self.pushButton_selectProfile.clicked.connect(lambda *args: self.updateProfile(True))
         self.pushButton_8.clicked.connect(lambda *args: self.updateProfile(False))
 
-        self.namePlate = self.stackedWidget.findChild(QLabel, 'label_4')
+        self.namePlate = self.stackedWidget.findChild(QLabel, 'label_currentProfileName')
         self.namePlate.setAlignment(Qt.AlignCenter)
         self.namePlate.setStyleSheet('color:#fff;')
 
-        self.groupBox_2.setStyleSheet('background-color: #e60012; border-radius: 0px;')
+        self.groupBox_appStatus.setStyleSheet('background-color: #e60012; border-radius: 0px;')
 
-        self.groupBox_2.findChild(QLabel, 'label_5').setStyleSheet('font-weight: bold; color: #fff;')
-        self.nSwitchIcon = self.groupBox_2.findChild(QLabel, 'label_6')
+        self.groupBox_appStatus.findChild(QLabel, 'label_NSORPCinfo').setStyleSheet('font-weight: bold; color: #fff;')
+        self.nSwitchIcon = self.groupBox_appStatus.findChild(QLabel, 'label_discord')
         self.nSwitchIcon.setScaledContents(True)
 
-        self.groupBox_6.setStyleSheet('background-color: #%s; border: 0px; border-radius: 0px;' % ('fff' if not settings['dark'] else '212020'))
-        for i in range(4):
-            if i == 3:
-                i += 2
-            group = self.stackedWidget.findChild(QGroupBox, 'groupBox_%s' % (i + 3))
+        self.groupBox_sidebar.setStyleSheet('background-color: #%s; border: 0px; border-radius: 0px;' % ('fff' if not settings['dark'] else '212020'))
+        for index, item_name in enumerate(['me', 'friends', 'settings', 'exit']):
+            group = self.stackedWidget.findChild(QGroupBox, f'groupBox_{item_name}')
             group.setStyleSheet('background-color: #%s; border: 1px solid #%s; border-radius: 8px;' % (('fff', 'dfdfdf') if not settings['dark'] else ('1c1b1b', '121111')))
 
-            if i == 5:
-                i -= 2
-            button = self.stackedWidget.findChild(QPushButton, 'pushButton_%s' % (i + 2))
+            button = self.stackedWidget.findChild(QPushButton, f'pushButton_{item_name}')
             button.setStyleSheet('background-color: transparent; border-radius: 0px; border: 0px; color: #%s;' % ('3c3c3c' if not settings['dark'] else 'fff'))
             button.setCursor(QCursor(Qt.PointingHandCursor))
-            if i == 0:
+            if index == 0:
                 button.clicked.connect(self.switchMe)
-            if i == 1:
+            elif index == 1:
                 button.clicked.connect(self.switchFriends)
-            if i == 2:
+            elif index == 2:
                 button.clicked.connect(self.switchSettings)
-            if i == 3:
+            elif index == 3:
                 button.clicked.connect(sys.exit)
 
-        self.logout = self.stackedWidget.findChild(QPushButton, 'pushButton_6')
+        self.logout = self.stackedWidget.findChild(QPushButton, 'pushButton_logout')
         self.logout.clicked.connect(client.logout)
         self.logout.setCursor(QCursor(Qt.PointingHandCursor))
 
         self.friendCodeButton.clicked.connect(self.setFriendCode)
 
-        self.presenceImage = self.stackedWidget.findChild(QLabel, 'label_8')
+        self.presenceImage = self.stackedWidget.findChild(QLabel, 'label_statusImage')
         self.presenceImage.setScaledContents(True)
-        self.label_11.setScaledContents(True)
+        self.label_profilePFP.setScaledContents(True)
 
-        self.presenceText = self.stackedWidget.findChild(QLabel, 'label_7')
-        self.presenceState = self.stackedWidget.findChild(QLabel, 'label_10')
+        self.presenceText = self.stackedWidget.findChild(QLabel, 'label_statusName')
+        self.presenceState = self.stackedWidget.findChild(QLabel, 'label_statusState')
         [x.setStyleSheet('background-color: transparent;') for x in (self.presenceText, self.presenceState)]
 
-        self.presenceDesc = self.stackedWidget.findChild(QLabel, 'label_9')
+        self.presenceDesc = self.stackedWidget.findChild(QLabel, 'label_currentlyPlayingText')
         self.presenceDesc.setAlignment(Qt.AlignCenter)
 
         # Settings
-        self.toggleDiscord = AnimatedToggle(self.page_3, checked_color = '#09ab44')
+        self.toggleDiscord = AnimatedToggle(self.page_settings, checked_color = '#09ab44')
         self.toggleDiscord.setGeometry(QRect(101, 0, 60, 41))
-        self.toggleStatus = AnimatedToggle(self.page_3, checked_color = '#09ab44')
+        self.toggleStatus = AnimatedToggle(self.page_settings, checked_color = '#09ab44')
         self.toggleStatus.setGeometry(QRect(101, 40, 60, 41))
-        self.toggleTheme = AnimatedToggle(self.page_3, checked_color = '#09ab44')
+        self.toggleTheme = AnimatedToggle(self.page_settings, checked_color = '#09ab44')
         self.toggleTheme.setGeometry(QRect(101, 80, 60, 41))
-        self.startInSystemTray = AnimatedToggle(self.page_3, checked_color = '#09ab44')
+        self.startInSystemTray = AnimatedToggle(self.page_settings, checked_color = '#09ab44')
         self.startInSystemTray.setGeometry(QRect(101, 120, 60, 41))
-        self.startOnLaunch = AnimatedToggle(self.page_3, checked_color = '#09ab44')
+        self.startOnLaunch = AnimatedToggle(self.page_settings, checked_color = '#09ab44')
         self.startOnLaunch.setGeometry(QRect(101, 160, 60, 41))
-        self.toggleSmallPFP = AnimatedToggle(self.page_3, checked_color = '#09ab44')
+        self.toggleSmallPFP = AnimatedToggle(self.page_settings, checked_color = '#09ab44')
         self.toggleSmallPFP.setGeometry(QRect(101, 440, 60, 41))
-        self.toggleEShopButton = AnimatedToggle(self.page_3, checked_color = '#09ab44')
+        self.toggleEShopButton = AnimatedToggle(self.page_settings, checked_color = '#09ab44')
         self.toggleEShopButton.setGeometry(QRect(101, 390, 60, 41))
 
         self.fakePushButton = QPushButton()
-        self.fakePushButton.clicked.connect(lambda a: self.label_22.setText(altLink))
+        self.fakePushButton.clicked.connect(lambda a: self.label_manualBrowserOpen.setText(altLink))
 
         # [MacOS] Hide Buttons if running app.py directly.
         if platform.system() == "Darwin" and not isScriptBundled:
             self.startOnLaunch.setHidden(True)
-            self.label_19.setHidden(True)
+            self.label_startAtLaunch.setHidden(True)
             self.startInSystemTray.setHidden(True)
-            self.label_17.setHidden(True)
+            self.label_startMinimized.setHidden(True)
 
         # Version Details
-        self.label_5.setText("NSO-RPC\n" + '\n'.join(versionTag))
+        self.label_NSORPCinfo.setText("NSO-RPC\n" + '\n'.join(versionTag))
 
     def closeEvent(self, event = None):
         if self.mode == 1:
@@ -474,7 +470,7 @@ class GUI(Ui_MainWindow):
         global session_token, user_lang, targetID
         try:
             session_token = self.session.run(*self.session.login(self.waitUntil, altLink = self.altLink))
-            user_lang = self.comboBox.currentText()
+            user_lang = self.comboBox_langSelect.currentText()
             client.createCTX(session_token, user_lang, None, version)
         except Exception as e:
             print(log(f'An error occurred! Chances are, you didn\'t paste the right link, but here\'s the error message:\n{e}'))
@@ -483,7 +479,7 @@ class GUI(Ui_MainWindow):
     def waitUntil(self):
         while self.mode == 1:
             pass
-        return self.lineEdit.text().strip()
+        return self.lineEdit_pasteURL.text().strip()
 
     def changeState(self):
         self.mode = 2
@@ -563,12 +559,12 @@ class GUI(Ui_MainWindow):
         try:
             text = 'Friend Code: SW-%s' % str(user.links.get('friendCode').get('id')).replace(' ', '-')
             state = ''
-            self.pushButton_7.setEnabled(False)
+            self.pushButton_selectProfile.setEnabled(False)
             self.pushButton_8.setEnabled(False)
 
             # Show notice when you dont have an account selected in friends.
-            self.label_20.setHidden(False)
-            self.label_21.setText('<a href="https://github.com/MCMi460/NSO-RPC#quickstart-guide" style="color: cyan;">NSO-RPC Quickstart Guide</a>')
+            self.label_accountNotice.setHidden(False)
+            self.label_quickstartLink.setText('<a href="https://github.com/MCMi460/NSO-RPC#quickstart-guide" style="color: cyan;">NSO-RPC Quickstart Guide</a>')
         except:
             zone = '%Y/%m/%d'
             if client.api.userInfo['language'] == 'en-US':
@@ -577,14 +573,14 @@ class GUI(Ui_MainWindow):
                 zone = '%d/%m/%Y'
             text = 'When You Became Friends:\n%s' % time.strftime(zone, time.localtime(user.friendCreatedAt))
             state = timeSince(user.presence.logoutAt)
-            self.pushButton_7.setEnabled(True)
+            self.pushButton_selectProfile.setEnabled(True)
             self.pushButton_8.setEnabled(True)
             # Hide Notice and Quickstart Link.
-            self.label_20.setHidden(True)
-            self.label_21.setHidden(True)
+            self.label_accountNotice.setHidden(True)
+            self.label_quickstartLink.setHidden(True)
 
         if user == client.api.user:
-            self.pushButton_7.setEnabled(False)
+            self.pushButton_selectProfile.setEnabled(False)
 
         if not user.image:
             if not user.nsaId in iconsStorage:
@@ -594,13 +590,13 @@ class GUI(Ui_MainWindow):
                 user.image = iconsStorage[user.nsaId]
 
         # Set user pic
-        self.label_11.setPixmap(user.image)
-        self.label_11.mousePressEvent = openLink(user.imageUri)
-        self.label_11.setCursor(QCursor(Qt.PointingHandCursor))
+        self.label_profilePFP.setPixmap(user.image)
+        self.label_profilePFP.mousePressEvent = openLink(user.imageUri)
+        self.label_profilePFP.setCursor(QCursor(Qt.PointingHandCursor))
 
-        self.label_13.setText(user.name)
+        self.label_profileName.setText(user.name)
 
-        self.label_14.setText(text)
+        self.label_profileDetails.setText(text)
 
         # Set presence image and game data
         if user.presence.game.name:
@@ -614,14 +610,14 @@ class GUI(Ui_MainWindow):
                 if user.presence.game.totalPlayTime / 60 < 5:
                     state = 'Played for a little while'
 
-            self.groupBox_7.setCursor(QCursor(Qt.PointingHandCursor))
-            self.groupBox_7.mousePressEvent = openLink(user.presence.game.shopUri)
+            self.groupBox_NSOstatus.setCursor(QCursor(Qt.PointingHandCursor))
+            self.groupBox_NSOstatus.mousePressEvent = openLink(user.presence.game.shopUri)
         else:
             self.presenceImage.clear()
             self.presenceText.setText('Offline')
 
-            self.groupBox_7.setCursor(QCursor(Qt.ArrowCursor))
-            self.groupBox_7.mousePressEvent = mousePressEvent
+            self.groupBox_NSOstatus.setCursor(QCursor(Qt.ArrowCursor))
+            self.groupBox_NSOstatus.mousePressEvent = mousePressEvent
         self.presenceState.setText(state)
         self.presenceState.adjustSize()
 
@@ -640,14 +636,14 @@ class GUI(Ui_MainWindow):
                     msg = 'Try running NSO-RPC with Administrator.'
                 elif 'Could not find Discord' in str(ret[1]) or 'Connection refused' in str(ret[1]):
                     msg = 'Try opening Discord first.'
-                self.label_12.setFixedWidth(self.label_12.width() + 120)
-                self.label_12.setFixedHeight(36)
-                self.label_12.setText("<a style='color: orange;'>Unable to connect to Discord!<br>%s</a>" % msg)
+                self.label_toggleRPC.setFixedWidth(self.label_toggleRPC.width() + 120)
+                self.label_toggleRPC.setFixedHeight(36)
+                self.label_toggleRPC.setText("<a style='color: orange;'>Unable to connect to Discord!<br>%s</a>" % msg)
                 self.toggleDiscord.setHidden(True)
         else:
             self.toggleDiscord.setHidden(False)
-            self.label_12.setFixedHeight(21)
-            self.label_12.setText('Discord:')
+            self.label_toggleRPC.setFixedHeight(21)
+            self.label_toggleRPC.setText('Discord:')
 
     def updateProfile(self, new):
         if new:
@@ -711,23 +707,23 @@ class GUI(Ui_MainWindow):
             j = i % 4
 
             friend = client.api.friends[i]
-            groupBox = QGroupBox(overlay)
-            groupBox.setStyleSheet('background-color: #%s; border: 1px solid %s; border-radius: 8px;' % (('fff', '#dfdfdf') if not settings['dark'] else ('212020', 'transparent')))
+            groupBox_pasteURL = QGroupBox(overlay)
+            groupBox_pasteURL.setStyleSheet('background-color: #%s; border: 1px solid %s; border-radius: 8px;' % (('fff', '#dfdfdf') if not settings['dark'] else ('212020', 'transparent')))
 
-            groupBox.setGeometry(QRect(10 + (j * 91), 0, 81, 111))
-            groupBox.setFixedSize(81, 111)
+            groupBox_pasteURL.setGeometry(QRect(10 + (j * 91), 0, 81, 111))
+            groupBox_pasteURL.setFixedSize(81, 111)
 
-            namePlate = QLabel(groupBox)
+            namePlate = QLabel(groupBox_pasteURL)
             namePlate.setGeometry(0, 81, 81, 30)
             namePlate.setAlignment(Qt.AlignCenter)
             namePlate.setText(friend.name)
 
-            label = QLabel(groupBox)
-            label.setGeometry(QRect(0, 0, 81, 81))
-            label.setScaledContents(True)
+            label_linkInstructions = QLabel(groupBox_pasteURL)
+            label_linkInstructions.setGeometry(QRect(0, 0, 81, 81))
+            label_linkInstructions.setScaledContents(True)
 
-            groupBox.mousePressEvent = openFriend(i)
-            groupBox.setCursor(QCursor(Qt.PointingHandCursor))
+            groupBox_pasteURL.mousePressEvent = openFriend(i)
+            groupBox_pasteURL.setCursor(QCursor(Qt.PointingHandCursor))
         if j >= 0:
             overlay.move(0, 0)
             overlay.setStyleSheet('background-color: transparent; border-radius: 0px; border: 0px;')
@@ -746,18 +742,18 @@ class GUI(Ui_MainWindow):
         self.switchHome()
 
     def switchHome(self):
-        self.stackedWidget_2.setCurrentIndex(0)
+        self.stackedWidget_Content.setCurrentIndex(0)
 
     def switchFriends(self):
         global friendTime
         if time.time() - friendTime >= 30:
             self.updateFriends()
             friendTime = time.time()
-        self.stackedWidget_2.setCurrentIndex(1)
+        self.stackedWidget_Content.setCurrentIndex(1)
 
     def switchSettings(self):
         self.checkDiscordError()
-        self.stackedWidget_2.setCurrentIndex(2)
+        self.stackedWidget_Content.setCurrentIndex(2)
 
     def openPfp(self, event = None):
         webbrowser.open(client.api.user.imageUri)
